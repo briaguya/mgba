@@ -1862,5 +1862,11 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>fastForwardHeldUnbounded</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>fastForwardHeldRatio</receiver>
+   <slot>setDisabled(bool)</slot>
+  </connection>
  </connections>
 </ui>

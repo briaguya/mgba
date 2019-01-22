@@ -540,6 +540,16 @@ void SettingsView::reloadConfig() {
 		m_ui.fastForwardRatio->setValue(fastForwardRatio);
 	}
 
+	double fastForwardHeldRatio = loadSetting("fastForwardHeldRatio").toDouble();
+	if (fastForwardHeldRatio <= 0) {
+		m_ui.fastForwardHeldUnbounded->setChecked(true);
+		m_ui.fastForwardHeldRatio->setEnabled(false);
+	} else {
+		m_ui.fastForwardHeldUnbounded->setChecked(false);
+		m_ui.fastForwardHeldRatio->setEnabled(true);
+		m_ui.fastForwardHeldRatio->setValue(fastForwardHeldRatio);
+	}
+
 	QString idleOptimization = loadSetting("idleOptimization");
 	if (idleOptimization == "ignore") {
 		m_ui.idleOptimization->setCurrentIndex(0);
