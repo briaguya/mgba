@@ -396,6 +396,12 @@ void SettingsView::updateConfig() {
 		saveSetting("fastForwardRatio", m_ui.fastForwardRatio);
 	}
 
+	if (m_ui.fastForwardHeldUnbounded->isChecked()) {
+		saveSetting("fastForwardHeldRatio", "-1");
+	} else {
+		saveSetting("fastForwardHeldRatio", m_ui.fastForwardHeldRatio);
+	}
+
 	switch (m_ui.idleOptimization->currentIndex() + IDLE_LOOP_IGNORE) {
 	case IDLE_LOOP_IGNORE:
 		saveSetting("idleOptimization", "ignore");
